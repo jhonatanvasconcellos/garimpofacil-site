@@ -97,6 +97,13 @@ h2 {
   margin: 36px 0 4px;
 }
 
+h3 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 22px 0 4px;
+}
+
 p, ul { margin: 0 0 14px; color: var(--ink-soft); }
 h1 + p.updated { margin-bottom: 24px; }
 
