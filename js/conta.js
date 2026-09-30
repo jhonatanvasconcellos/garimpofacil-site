@@ -53,7 +53,8 @@ export function describeSubscription(row, now = new Date()) {
         actions: ['invoice', 'cancel'],
       };
     }
-    if (inTrial) {
+    const firstChargeAtTrialEnd = nextDueDate(row) <= new Date(new Date(row.trial_ends_at).getTime() + dayMs);
+    if (inTrial && firstChargeAtTrialEnd) {
       return {
         title: `Teste grátis até ${formatDate(row.trial_ends_at)}`,
         text: `Sua assinatura já está ativada: a primeira mensalidade de R$ 19,90 vence em ${formatDate(nextDueDate(row))}.`,
