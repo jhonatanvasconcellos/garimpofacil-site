@@ -28,6 +28,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -608,7 +610,6 @@ strong { color: var(--ink); }
 
 #billing-fields { display: grid; gap: 16px; }
 
-#billing-fields[hidden] { display: none; }
 
 .form-message {
   margin: 0;

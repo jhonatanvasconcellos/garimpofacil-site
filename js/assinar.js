@@ -2,11 +2,12 @@ import { saveCheckout } from './checkout_state.js';
 import { siteUrl } from './config.js';
 import { formatCpfCnpj, isValidCpfCnpj, onlyDigits } from './cpf_cnpj.js';
 import { formatDate } from './format.js';
+import { authErrorMessage } from './auth_errors.js';
 import { createSupabase, isConfigured } from './supabase.js';
+import { functionErrorCode, setBusy, setMessage, show } from './ui.js';
 
 const redirectTo = `${siteUrl}/assinar.html`;
 
-const views = document.querySelectorAll('[data-view]');
 const accountForm = document.querySelector('#account-form');
 const accountTitle = document.querySelector('#account-title');
 const accountSubmit = document.querySelector('#account-submit');
@@ -30,29 +31,6 @@ let pendingEmail = '';
 let subscription = null;
 let billingShown = false;
 
-function show(name) {
-  views.forEach((view) => {
-    view.hidden = view.dataset.view !== name;
-  });
-  window.scrollTo(0, 0);
-}
-
-function setMessage(element, text, kind = 'error') {
-  element.textContent = text;
-  element.dataset.kind = kind;
-  element.hidden = !text;
-}
-
-function setBusy(button, busy, busyLabel) {
-  if (busy) {
-    button.dataset.label = button.textContent;
-    button.textContent = busyLabel;
-  } else if (button.dataset.label) {
-    button.textContent = button.dataset.label;
-  }
-  button.disabled = busy;
-}
-
 function setMode(next) {
   mode = next;
   const signup = mode === 'signup';
@@ -63,25 +41,6 @@ function setMode(next) {
   accountForm.elements.password.autocomplete = signup ? 'new-password' : 'current-password';
   modeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
   setMessage(accountMessage, '');
-}
-
-function authErrorMessage(error) {
-  switch (error?.code) {
-    case 'invalid_credentials':
-      return 'E-mail ou senha incorretos.';
-    case 'user_already_exists':
-    case 'email_exists':
-      return 'Esse e-mail já tem conta. Entre com sua senha.';
-    case 'weak_password':
-      return 'Senha fraca. Use pelo menos 6 caracteres.';
-    case 'email_address_invalid':
-      return 'Informe um e-mail válido.';
-    case 'over_email_send_rate_limit':
-    case 'over_request_rate_limit':
-      return 'Muitas tentativas seguidas. Espere um minuto e tente de novo.';
-    default:
-      return 'Não foi possível continuar agora. Confira sua conexão e tente de novo.';
-  }
 }
 
 function showConfirmEmail(email) {
@@ -177,8 +136,7 @@ async function enterBilling(session) {
 }
 
 async function checkoutErrorMessage(error) {
-  const body = await error?.context?.json?.().catch(() => null);
-  switch (body?.error) {
+  switch (await functionErrorCode(error)) {
     case 'invalid_cpf_cnpj':
       return 'CPF ou CNPJ inválido. Confira os números.';
     case 'invalid_name':

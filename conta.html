@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6B7A2A">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Minha conta — Garimpo Fácil</title>
+<meta name="description" content="Veja a situação da sua assinatura do Garimpo Fácil, pague uma mensalidade em aberto ou cancele.">
+</head>
+<body class="checkout-page">
+<header class="site-header">
+  <a class="brand" href="/">
+    <img src="logo.png" alt="" width="28" height="28">
+    Garimpo Fácil
+  </a>
+</header>
+
+<main class="checkout">
+  <section data-view="loading" class="checkout-card">
+    <p class="checkout-loading">Carregando…</p>
+  </section>
+
+  <section data-view="unavailable" class="checkout-card" hidden>
+    <h1>Minha conta em breve</h1>
+    <p>Estamos finalizando essa página. Para qualquer dúvida sobre sua assinatura, escreva para
+    <a href="mailto:suportegarimpofacil@gmail.com">suportegarimpofacil@gmail.com</a>.</p>
+  </section>
+
+  <section data-view="offline" class="checkout-card" hidden>
+    <h1>Não conseguimos carregar a página</h1>
+    <p>Confira sua conexão com a internet e tente de novo.</p>
+    <button class="btn btn-primary btn-block" type="button" onclick="location.reload()">Tentar de novo</button>
+  </section>
+
+  <section data-view="login" class="checkout-card" hidden>
+    <h1>Minha conta</h1>
+    <p>Entre com o mesmo e-mail e senha que você usa no app.</p>
+    <form id="login-form" class="form" novalidate>
+      <label class="field">
+        <span>E-mail</span>
+        <input type="email" name="email" autocomplete="email" inputmode="email" required>
+      </label>
+      <label class="field">
+        <span>Senha</span>
+        <input type="password" name="password" autocomplete="current-password" required>
+      </label>
+      <p id="login-message" class="form-message" role="alert" hidden></p>
+      <button id="login-submit" class="btn btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+    <p class="form-hint">Ainda não tem conta? <a href="assinar.html">Comece seus 7 dias grátis</a></p>
+    <p class="form-hint">Esqueceu a senha? Recupere pelo app, na tela de login.</p>
+  </section>
+
+  <section data-view="account" class="checkout-card" hidden>
+    <p class="eyebrow">Minha conta</p>
+    <h1 id="status-title">Carregando…</h1>
+    <p class="signed-in">Entrou como <strong id="account-email"></strong> ·
+      <button id="sign-out" class="link-button" type="button">Sair</button></p>
+    <p id="status-text" class="note"></p>
+    <p id="account-message" class="form-message" role="status" hidden></p>
+    <div class="stack">
+      <button id="invoice-button" class="btn btn-primary btn-block" type="button" hidden>Ver mensalidade em aberto</button>
+      <a id="subscribe-link" class="btn btn-primary btn-block" href="assinar.html" hidden>Ativar assinatura</a>
+      <button id="cancel-button" class="btn btn-ghost btn-block" type="button" hidden>Cancelar assinatura</button>
+    </div>
+    <div id="cancel-confirm" class="invoice-box" hidden>
+      <p><strong>Cancelar a assinatura?</strong></p>
+      <p id="cancel-confirm-text"></p>
+      <div class="stack">
+        <button id="cancel-yes" class="btn btn-primary btn-block" type="button">Sim, cancelar</button>
+        <button id="cancel-no" class="btn btn-ghost btn-block" type="button">Manter assinatura</button>
+      </div>
+    </div>
+    <p class="form-hint">Pagamentos processados pelo Asaas. Dúvidas:
+    <a href="mailto:suportegarimpofacil@gmail.com">suportegarimpofacil@gmail.com</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <nav class="footer-links">
+    <a href="privacidade.html">Política de Privacidade</a>
+    <a href="termos.html">Termos de Uso</a>
+    <a href="exclusao-conta.html">Excluir conta</a>
+  </nav>
+  <p>Garimpo Fácil — gestão para brechós ·
+  <a href="mailto:suportegarimpofacil@gmail.com">suportegarimpofacil@gmail.com</a></p>
+</footer>
+<script type="module" src="js/conta.js"></script>
+</body>
+</html>
