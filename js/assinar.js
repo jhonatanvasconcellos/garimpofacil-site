@@ -21,6 +21,7 @@ const billingEmail = document.querySelector('#billing-email');
 const billingNote = document.querySelector('#billing-note');
 const billingSubmit = document.querySelector('#billing-submit');
 const billingMessage = document.querySelector('#billing-message');
+const skipPaymentHint = document.querySelector('#skip-payment-hint');
 const cpfInput = document.querySelector('#cpf-cnpj');
 
 let supabase = null;
@@ -141,8 +142,11 @@ async function resendConfirmation() {
 
 function describeSubscription(row) {
   if (!row) return 'Você não paga nada agora: a primeira mensalidade de R$ 19,90 só vence no fim do teste grátis.';
+  if (row.asaas_subscription_id && row.status === 'active') {
+    return 'Sua assinatura está ativa. Continue para ver se há alguma mensalidade em aberto.';
+  }
   if (row.asaas_subscription_id) {
-    return 'Você já tem uma assinatura. Continue para ver a fatura em aberto.';
+    return 'Você já tem uma assinatura. Continue para ver a mensalidade em aberto.';
   }
   if (new Date(row.trial_ends_at) > new Date()) {
     return `Seu teste grátis vai até ${formatDate(row.trial_ends_at)}. A primeira mensalidade de R$ 19,90 vence nesse dia — você não paga nada agora.`;
@@ -167,7 +171,8 @@ async function enterBilling(session) {
   billingForm.elements.name.required = !hasSubscription;
   billingForm.elements.cpfCnpj.required = !hasSubscription;
   billingForm.elements.terms.required = !hasSubscription;
-  billingSubmit.textContent = hasSubscription ? 'Ver minha fatura' : 'Ir para o pagamento';
+  billingSubmit.textContent = hasSubscription ? 'Ver minha assinatura' : 'Ir para o pagamento';
+  skipPaymentHint.hidden = hasSubscription;
   billingNote.textContent = describeSubscription(subscription);
 }
 
