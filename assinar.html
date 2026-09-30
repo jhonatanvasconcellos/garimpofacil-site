@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6B7A2A">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Assinar — Garimpo Fácil</title>
+<meta name="description" content="Crie sua conta no Garimpo Fácil e comece seus 7 dias grátis.">
+</head>
+<body class="checkout-page">
+<header class="site-header">
+  <a class="brand" href="/">
+    <img src="logo.png" alt="" width="28" height="28">
+    Garimpo Fácil
+  </a>
+</header>
+
+<main class="checkout">
+  <section data-view="loading" class="checkout-card">
+    <p class="checkout-loading">Carregando…</p>
+  </section>
+
+  <section data-view="unavailable" class="checkout-card" hidden>
+    <h1>Assinaturas em breve</h1>
+    <p>Estamos finalizando essa página. Enquanto isso, baixe o app e comece seus 7 dias grátis por
+    lá.</p>
+    <a class="btn btn-primary btn-block" href="/#baixar">Baixar o app</a>
+  </section>
+
+  <section data-view="offline" class="checkout-card" hidden>
+    <h1>Não conseguimos carregar a página</h1>
+    <p>Confira sua conexão com a internet e tente de novo.</p>
+    <button class="btn btn-primary btn-block" type="button" onclick="location.reload()">Tentar de novo</button>
+  </section>
+
+  <section data-view="account" class="checkout-card" hidden>
+    <p class="eyebrow">Passo 1 de 2</p>
+    <h1 id="account-title">Crie sua conta</h1>
+    <p>7 dias grátis, sem cartão. Você usa essa mesma conta para entrar no app.</p>
+
+    <div class="mode-switch" role="group" aria-label="Tipo de acesso">
+      <button type="button" data-mode="signup" aria-pressed="true">Criar conta</button>
+      <button type="button" data-mode="login" aria-pressed="false">Já tenho conta</button>
+    </div>
+
+    <form id="account-form" class="form" novalidate>
+      <label class="field">
+        <span>E-mail</span>
+        <input type="email" name="email" autocomplete="email" inputmode="email" required>
+      </label>
+      <label class="field">
+        <span>Senha</span>
+        <input type="password" name="password" autocomplete="new-password" minlength="6" required>
+      </label>
+      <label class="field" id="confirm-password-field">
+        <span>Confirmar senha</span>
+        <input type="password" name="confirmPassword" autocomplete="new-password" minlength="6" required>
+      </label>
+      <p id="account-message" class="form-message" role="alert" hidden></p>
+      <button id="account-submit" class="btn btn-primary btn-block" type="submit">Criar conta</button>
+    </form>
+    <p class="form-hint">Esqueceu a senha? Recupere pelo app, na tela de login.</p>
+  </section>
+
+  <section data-view="confirm-email" class="checkout-card" hidden>
+    <p class="eyebrow">Quase lá</p>
+    <h1>Confirme seu e-mail</h1>
+    <p>Enviamos um link de confirmação para <strong id="confirm-email-address"></strong>. Abra o
+    e-mail neste mesmo aparelho e toque no link — você volta para cá já logada.</p>
+    <p id="confirm-message" class="form-message" role="status" hidden></p>
+    <div class="stack">
+      <button id="confirmed-login" class="btn btn-primary btn-block" type="button">Já confirmei, quero entrar</button>
+      <button id="resend-confirmation" class="btn btn-ghost btn-block" type="button">Reenviar e-mail</button>
+    </div>
+  </section>
+
+  <section data-view="billing" class="checkout-card" hidden>
+    <p class="eyebrow">Passo 2 de 2</p>
+    <h1>Ative sua assinatura</h1>
+    <p class="signed-in">Entrou como <strong id="billing-email"></strong> ·
+      <button id="sign-out" class="link-button" type="button">Sair</button></p>
+    <p id="billing-note" class="note"></p>
+
+    <form id="billing-form" class="form" novalidate>
+      <div id="billing-fields">
+        <label class="field">
+          <span>Nome completo</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label class="field">
+          <span>CPF ou CNPJ</span>
+          <input id="cpf-cnpj" type="text" name="cpfCnpj" inputmode="numeric" autocomplete="off" maxlength="18" required>
+          <small>Necessário para emitir a cobrança.</small>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="terms" required>
+          <span>Li e aceito os <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a>
+          e a cobrança mensal de R$ 19,90, que posso cancelar quando quiser.</span>
+        </label>
+      </div>
+      <p id="billing-message" class="form-message" role="alert" hidden></p>
+      <button id="billing-submit" class="btn btn-primary btn-block" type="submit">Ir para o pagamento</button>
+    </form>
+    <p class="form-hint">Pagamento processado pelo Asaas: Pix, boleto ou cartão.</p>
+    <p class="form-hint"><a id="skip-payment" href="sucesso.html">Agora não, quero só testar</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <nav class="footer-links">
+    <a href="privacidade.html">Política de Privacidade</a>
+    <a href="termos.html">Termos de Uso</a>
+    <a href="exclusao-conta.html">Excluir conta</a>
+  </nav>
+  <p>Garimpo Fácil — gestão para brechós ·
+  <a href="mailto:suportegarimpofacil@gmail.com">suportegarimpofacil@gmail.com</a></p>
+</footer>
+<script type="module" src="js/assinar.js"></script>
+</body>
+</html>
