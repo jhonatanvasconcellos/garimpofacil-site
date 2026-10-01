@@ -3,39 +3,204 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Garimpo Fácil</title>
-<meta name="description" content="Gestão de ponta a ponta para brechós: garimpo, vendas, estoque, clientes e finanças num só app.">
+<title>Garimpo Fácil — gestão para brechós</title>
+<meta name="description" content="Organize garimpo, vendas por live e postagem, estoque, clientes e finanças do seu brechó num só app. 7 dias grátis, depois R$ 19,90/mês.">
+<meta name="theme-color" content="#6B7A2A">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="canonical" href="https://garimpofacil.app.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Garimpo Fácil">
+<meta property="og:title" content="Garimpo Fácil — gestão para brechós">
+<meta property="og:description" content="Garimpo, vendas por live, estoque, clientes e finanças do seu brechó num só app. 7 dias grátis.">
+<meta property="og:url" content="https://garimpofacil.app.br/">
+<meta property="og:image" content="https://garimpofacil.app.br/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 <header class="site-header">
   <a class="brand" href="/">
     <img src="logo.png" alt="" width="28" height="28">
     Garimpo Fácil
   </a>
   <nav>
-    <a href="privacidade.html">Privacidade</a>
-    <a href="termos.html">Termos de Uso</a>
-    <a href="exclusao-conta.html">Excluir conta</a>
+    <a href="#funcionalidades">Funcionalidades</a>
+    <a href="#preco">Preço</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="conta.html">Minha conta</a>
   </nav>
 </header>
 
-<main class="landing">
-  <img src="logo.png" alt="Garimpo Fácil" width="64" height="64" class="landing-logo">
-  <h1>Garimpo Fácil</h1>
-  <p class="lead">Organize compras, vendas por live, estoque e clientes do seu brechó — tudo num só
-  app, pensado pra uso rápido no celular entre uma venda e outra.</p>
-  <div class="landing-links">
-    <a href="privacidade.html">Política de Privacidade</a>
-    <a href="termos.html">Termos de Uso</a>
-    <a href="exclusao-conta.html">Excluir conta</a>
-  </div>
+<main class="home-main">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Gestão para brechós</p>
+      <h1>Seu brechó organizado, do garimpo à última venda da live.</h1>
+      <p class="lead">Registre o que comprou, o que vendeu em cada live ou postagem, quem comprou e
+      quanto entrou — direto do celular, entre uma venda e outra. Sem planilha, sem caderninho.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="assinar.html">Comece 7 dias grátis</a>
+        <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+      </div>
+      <p class="hero-note">Sem cartão para testar · depois R$ 19,90/mês · cancele quando quiser</p>
+    </div>
+
+    <div class="phone" aria-hidden="true">
+      <div class="phone-screen">
+        <p class="phone-title">Live de quinta</p>
+        <p class="phone-sub">12 peças vendidas · 8 clientes</p>
+        <div class="phone-total">
+          <span>Total da live</span>
+          <strong>R$ 684,00</strong>
+        </div>
+        <ul class="phone-list">
+          <li><span class="phone-name">Mariana S. <em>5ª compra</em></span><span>R$ 89,00</span></li>
+          <li><span class="phone-name">Carla R. <em>2ª compra</em></span><span>R$ 45,00</span></li>
+          <li><span class="phone-name">Juliana P. <em>nova</em></span><span>R$ 120,00</span></li>
+          <li><span class="phone-name">Beatriz L. <em>9ª compra</em></span><span>R$ 62,00</span></li>
+        </ul>
+        <div class="phone-chip">3 pendências de pagamento</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pains">
+    <h2>Se isso parece com o seu brechó, o Garimpo Fácil é pra você</h2>
+    <ul class="pain-grid">
+      <li>Anotou a venda da live no caderno e depois não achou quem pagou e quem ainda deve.</li>
+      <li>Não sabe quanto gastou no garimpo do mês — nem se a peça deu lucro.</li>
+      <li>Vendeu uma peça que já tinha saído em outra postagem.</li>
+      <li>Não lembra quais clientes compram sempre e merecem aquele mimo.</li>
+    </ul>
+  </section>
+
+  <section id="funcionalidades" class="features">
+    <h2>Tudo o que o brechó precisa, num só lugar</h2>
+    <div class="feature-grid">
+      <article class="feature">
+        <h3>Garimpo (compras)</h3>
+        <p>Registre cada ida ao garimpo com o que comprou e quanto pagou. Funciona até sem
+        internet, no meio da feira — sincroniza quando o sinal voltar.</p>
+      </article>
+      <article class="feature">
+        <h3>Vendas por live e postagem</h3>
+        <p>Para cada live ou postagem, marque quantas peças saíram, para quem e por quanto. Você
+        vê o ritmo do brechó semana a semana.</p>
+      </article>
+      <article class="feature">
+        <h3>Clientes e recorrência</h3>
+        <p>Cada cliente tem um contador de compras: você sabe quem é nova, quem volta sempre e
+        quem ainda está com pagamento pendente.</p>
+      </article>
+      <article class="feature">
+        <h3>Estoque</h3>
+        <p>As peças do garimpo viram estoque e saem sozinhas quando você registra a venda. Nada de
+        vender a mesma peça duas vezes.</p>
+      </article>
+      <article class="feature">
+        <h3>Despesas</h3>
+        <p>Frete, embalagem, taxa, sacolinha: anote os gastos do brechó e saiba o que sobra de
+        verdade no fim do mês.</p>
+      </article>
+      <article class="feature">
+        <h3>Painel do brechó</h3>
+        <p>Quanto vendeu, quanto gastou e como está a semana — num resumo que abre em segundos.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="steps">
+    <h2>Como funciona</h2>
+    <ol class="step-list">
+      <li>
+        <strong>Crie sua conta</strong>
+        <span>Aqui no site ou direto no app. Leva menos de um minuto.</span>
+      </li>
+      <li>
+        <strong>Use tudo por 7 dias grátis</strong>
+        <span>Sem cartão, sem limite de peças, lives ou clientes.</span>
+      </li>
+      <li>
+        <strong>Gostou? Ative a assinatura</strong>
+        <span>Por Pix, boleto ou cartão, aqui no site. Cancele quando quiser.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="preco" class="pricing">
+    <div class="price-card">
+      <p class="eyebrow">Plano único</p>
+      <p class="price"><span class="price-currency">R$</span>19,90<span class="price-period">/mês</span></p>
+      <p class="price-trial">7 dias grátis para testar</p>
+      <ul class="price-list">
+        <li>Garimpo, vendas, estoque, clientes e despesas</li>
+        <li>Lives, postagens e clientes ilimitados</li>
+        <li>Garimpo funcionando sem internet</li>
+        <li>Pix, boleto ou cartão · sem fidelidade</li>
+      </ul>
+      <a class="btn btn-primary btn-block" href="assinar.html">Comece 7 dias grátis</a>
+    </div>
+  </section>
+
+  <section id="duvidas" class="faq">
+    <h2>Dúvidas frequentes</h2>
+    <details>
+      <summary>Preciso cadastrar cartão para testar?</summary>
+      <p>Não. Você usa o app completo por 7 dias sem informar forma de pagamento.</p>
+    </details>
+    <details>
+      <summary>Como eu pago a assinatura?</summary>
+      <p>Por Pix, boleto ou cartão de crédito, pelo nosso site. A cobrança é mensal e processada
+      pelo Asaas, instituição de pagamento autorizada pelo Banco Central.</p>
+    </details>
+    <details>
+      <summary>Posso cancelar quando quiser?</summary>
+      <p>Pode. Não tem fidelidade nem multa. Você continua usando até o fim do período já pago.</p>
+    </details>
+    <details>
+      <summary>O que acontece com meus dados se eu parar de pagar?</summary>
+      <p>Nada é apagado. O acesso fica pausado e, quando você reativar a assinatura, está tudo
+      lá do jeito que deixou. Se quiser apagar tudo, é só
+      <a href="exclusao-conta.html">excluir sua conta</a>.</p>
+    </details>
+    <details>
+      <summary>Funciona sem internet?</summary>
+      <p>O registro de compras no garimpo funciona offline e sincroniza quando a conexão volta.
+      As demais telas precisam de internet por enquanto.</p>
+    </details>
+    <details>
+      <summary>Serve para brechó pequeno, que vende só pelo Instagram?</summary>
+      <p>Foi feito exatamente para isso: brecholeiras que vendem por live e postagem e precisam
+      de controle rápido pelo celular.</p>
+    </details>
+  </section>
+
+  <section id="baixar" class="download">
+    <h2>Baixe o Garimpo Fácil</h2>
+    <p>Já criou sua conta? Entre no app com o mesmo e-mail e senha.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/br/app/id6805974080" data-store="apple">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.4-.9-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>
+        <span><small>Baixar na</small>App Store</span>
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.garimpofacil.app" data-store="google">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zm13.3 13.3-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2h-.1zm-.1.1L13.4 12 3.6 21.9c.4.4 1 .4 1.7.1l11.5-6.8zM16.8 8.8 5.3 2c-.7-.4-1.3-.3-1.7.1l9.8 9.9 3.4-3.2z"/></svg>
+        <span><small>Disponível no</small>Google Play</span>
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
+  <nav class="footer-links">
+    <a href="privacidade.html">Política de Privacidade</a>
+    <a href="termos.html">Termos de Uso</a>
+    <a href="exclusao-conta.html">Excluir conta</a>
+  </nav>
   <p>Garimpo Fácil — gestão para brechós ·
   <a href="mailto:suportegarimpofacil@gmail.com">suportegarimpofacil@gmail.com</a></p>
 </footer>
